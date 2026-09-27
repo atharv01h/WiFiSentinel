@@ -25,6 +25,8 @@ Designed for network administrators, security researchers, and enthusiasts, WiFi
 - 🦈 **Raw Packet Capture (Monitor Mode)**: Leverage Npcap to capture raw 802.11 frames directly from your wireless adapter.
 - 📦 **Offline PCAP Analysis**: Load saved `.pcap` or `.pcapng` files for deep inspection. Features a detailed Wireshark-like packet list that parses Management, Control, and Data frames.
 - 🔒 **Security Posture & Findings**: Automatically analyze networks for misconfigurations (e.g., Open networks, weak WEP/WPA encryption, missing PMF).
+- 🔑 **Saved Profiles**: Extract and manage saved Wi-Fi profiles and passwords from the local Windows system securely.
+- 📄 **Automated Reports**: Generate comprehensive HTML/JSON reports containing network discoveries, security findings, and packet capture analytics.
 - 🎨 **Premium UI/UX**: A dark-mode, glassmorphic design system inspired by modern security tooling, featuring high-performance data tables and real-time metric updates.
 
 ---
@@ -72,6 +74,8 @@ npm run tauri build
 2. **Networks**: See a live list of discovered Access Points and their configurations.
 3. **Capture**: Start or stop live 802.11 packet capture. Ensure the app is running as Administrator!
 4. **PCAP Analysis**: Load a previously captured `.pcap` file to view a breakdown of frame types and a detailed list of all recorded packets.
+5. **Profiles**: View Wi-Fi profiles saved on the local Windows machine along with their plaintext passwords.
+6. **Reports**: Generate and export detailed HTML or JSON reports of your auditing sessions and security findings.
 
 ---
 
