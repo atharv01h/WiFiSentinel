@@ -1,0 +1,32 @@
+[package]
+name = "wifisentinel-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "wifisentinel"
+path = "src/main.rs"
+
+[dependencies]
+wifisentinel-core = { path = "../wifisentinel-core" }
+wifisentinel-wlan = { path = "../wifisentinel-wlan" }
+wifisentinel-capture = { path = "../wifisentinel-capture" }
+wifisentinel-detection = { path = "../wifisentinel-detection" }
+wifisentinel-analysis = { path = "../wifisentinel-analysis" }
+wifisentinel-pcap-analysis = { path = "../wifisentinel-pcap-analysis" }
+wifisentinel-reporting = { path = "../wifisentinel-reporting" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+futures.workspace = true
+clap = { version = "4", features = ["derive", "env"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["test-util", "full"] }

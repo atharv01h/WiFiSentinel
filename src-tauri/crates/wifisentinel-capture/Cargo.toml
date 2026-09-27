@@ -1,0 +1,29 @@
+[package]
+name = "wifisentinel-capture"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+wifisentinel-core = { path = "../wifisentinel-core" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+futures.workspace = true
+macaddr.workspace = true
+
+# pcap / Npcap integration - optional (graceful degradation when absent)
+pcap = { version = "2" }
+rand = "0.8.5"
+
+[features]
+default = []
+npcap = []
+
+[dev-dependencies]
+tokio = { version = "1", features = ["test-util", "full"] }

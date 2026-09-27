@@ -1,0 +1,23 @@
+[package]
+name = "wifisentinel-pcap-analysis"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+wifisentinel-core = { path = "../wifisentinel-core" }
+wifisentinel-capture = { path = "../wifisentinel-capture", features = ["npcap"] }
+wifisentinel-detection = { path = "../wifisentinel-detection" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+futures.workspace = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["test-util", "full"] }
+tempfile = "3"

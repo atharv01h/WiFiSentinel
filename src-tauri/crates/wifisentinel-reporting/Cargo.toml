@@ -1,0 +1,25 @@
+[package]
+name = "wifisentinel-reporting"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+wifisentinel-core = { path = "../wifisentinel-core" }
+wifisentinel-detection = { path = "../wifisentinel-detection" }
+wifisentinel-analysis = { path = "../wifisentinel-analysis" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+futures.workspace = true
+
+# HTML templating
+tera = "1"
+
+# PDF generation (via headless chromium or wkhtmltopdf - optional)
+# We generate HTML primarily; PDF is HTML->PDF via Chromium print

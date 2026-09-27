@@ -1,0 +1,22 @@
+[package]
+name = "wifisentinel-wlan"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+wifisentinel-core = { path = "../wifisentinel-core" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+futures.workspace = true
+windows.workspace = true
+macaddr.workspace = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["test-util", "full"] }

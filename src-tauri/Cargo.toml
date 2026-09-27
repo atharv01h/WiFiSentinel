@@ -1,0 +1,90 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/wifisentinel-core",
+    "crates/wifisentinel-wlan",
+    "crates/wifisentinel-capture",
+    "crates/wifisentinel-detection",
+    "crates/wifisentinel-analysis",
+    "crates/wifisentinel-pcap-analysis",
+    "crates/wifisentinel-reporting",
+    "crates/wifisentinel-cli",
+    "crates/wifisentinel-app",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["WiFiSentinel Team"]
+license = "MIT"
+repository = "https://github.com/wifisentinel/wifisentinel"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+tokio-stream = "0.1"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Database
+sqlx = { version = "0.8", features = ["runtime-tokio-native-tls", "sqlite", "migrate", "chrono", "uuid"] }
+
+# Identifiers and time
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Error handling
+thiserror = "1"
+anyhow = "1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+tracing-appender = "0.2"
+
+# Async utilities
+futures = "0.3"
+async-trait = "0.1"
+
+# Config
+config = { version = "0.14", features = ["toml", "json"] }
+toml = "0.8"
+
+# OUI / vendor lookup
+oui = { version = "0.3" }
+
+# Network types
+macaddr = { version = "1", features = ["serde"] }
+
+# Tauri
+tauri = { version = "2" }
+tauri-build = { version = "2" }
+
+# Windows-specific
+[workspace.dependencies.windows]
+version = "0.61"
+features = [
+    "Win32_NetworkManagement_WiFi",
+    "Win32_NetworkManagement_IpHelper",
+    "Win32_Foundation",
+    "Win32_System_Threading",
+    "Win32_System_Memory",
+    "Win32_NetworkManagement_Ndis",
+    "Win32_System_Com",
+    "Win32_System_Registry",
+]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = false  # keep symbols for crash reporting
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.test]
+opt-level = 1

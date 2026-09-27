@@ -1,0 +1,12 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/target_cli/
+src-tauri/gen/
+.env
+*.txt
+src-tauri-temp/
+*.msi
+*.exe
+*.pcap
+*.pcapng
